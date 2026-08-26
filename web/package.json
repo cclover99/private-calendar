@@ -7,7 +7,7 @@
     "dev": "bun run --parallel dev:server dev:frontend",
     "dev:server": "bun --hot server.ts",
     "dev:frontend": "bun build ./src/frontend.tsx --outdir=dist --target=browser --sourcemap=linked --entry-naming=[name].[ext] --asset-naming=[name].[ext] --watch",
-    "build": "prisma generate && bun build ./src/frontend.tsx --outdir=dist --target=browser --minify --sourcemap=linked --entry-naming='[name].[ext]' --asset-naming='[name].[ext]' --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
+    "build": "bun build ./src/frontend.tsx --outdir=dist --target=browser --minify --sourcemap=linked --entry-naming='[name].[ext]' --asset-naming='[name].[ext]' --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
     "start": "bun server.ts"
   },
 

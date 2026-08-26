@@ -23,7 +23,7 @@ const server = Bun.serve({
         }
 
         if (pathname !== "/") {
-            const ASSET_DIRS = process.env.NODE_ENV === "production" ? ["dist"] : ["dist", "public"];
+            const ASSET_DIRS = ["dist", "public"];
             
             for (const dir of ASSET_DIRS) {
                 const file = Bun.file(`${import.meta.dir}/${dir}${pathname}`);

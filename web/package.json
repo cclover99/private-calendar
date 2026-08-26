@@ -4,19 +4,34 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun --hot src/index.ts",
-    "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
-    "start": "NODE_ENV=production bun src/index.ts"
+    "dev": "bun run --parallel dev:server dev:frontend",
+    "dev:server": "bun --hot server.ts",
+    "dev:frontend": "bun build ./src/frontend.tsx --outdir=dist --target=browser --sourcemap=linked --entry-naming=[name].[ext] --asset-naming=[name].[ext] --watch",
+    "build": "prisma generate && bun build ./src/frontend.tsx --outdir=dist --target=browser --minify --sourcemap=linked --entry-naming='[name].[ext]' --asset-naming='[name].[ext]' --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
+    "start": "bun server.ts"
   },
+
   "dependencies": {
+    "@prisma/adapter-pg": "7.10.0",
+    "@prisma/client": "7.10.0",
+    "express": "^5.2.1",
+    "openpgp": "^6.3.1",
+    "pg": "^8.23.0",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "resend": "^6.22.1",
+    "zod": "^4.4.3"
   },
+
   "devDependencies": {
+    "@types/bun": "latest",
+    "@types/express": "^5.0.6",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/bun": "latest"
+    "prisma": "7.10.0"
   },
+
   "peerDependencies": {
     "typescript": "^7"
   }

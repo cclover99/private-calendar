@@ -7,7 +7,7 @@
     "dev": "bun run --parallel dev:server dev:frontend",
     "dev:server": "bun --hot server.ts",
     "dev:frontend": "bun build ./src/frontend.tsx --outdir=dist --target=browser --sourcemap=linked --watch",
-    "build": "bun build ./src/frontend.tsx --outdir=dist --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*' && cp -R ./public/* ./dist/",
+    "build": "bun build ./src/frontend.tsx --outdir=dist --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
     "start": "bun server.ts"
   },
   "dependencies": {

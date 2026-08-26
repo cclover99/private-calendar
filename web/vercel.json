@@ -1,1 +1,6 @@
-{ "bunVersion": "1.4.*" }
+{ 
+    "bunVersion": "1.4.*",
+    "functions": {
+        "server.ts": { "includeFiles": "dist/**" }
+    }
+}

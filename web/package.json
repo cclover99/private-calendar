@@ -10,11 +10,9 @@
     "build": "bun build ./src/frontend.tsx --outdir=dist --target=browser --minify --sourcemap=linked --entry-naming='[name].[ext]' --asset-naming='[name].[ext]' --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
     "start": "bun server.ts"
   },
-
   "dependencies": {
     "@prisma/adapter-pg": "7.10.0",
     "@prisma/client": "7.10.0",
-    "express": "^5.2.1",
     "openpgp": "^6.3.1",
     "pg": "^8.23.0",
     "react": "^19",
@@ -22,16 +20,13 @@
     "resend": "^6.22.1",
     "zod": "^4.4.3"
   },
-
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/express": "^5.0.6",
     "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "prisma": "7.10.0"
   },
-
   "peerDependencies": {
     "typescript": "^7"
   }
